@@ -1,14 +1,22 @@
 import { React, useEffect, useState } from 'react'
 import axios from '../../util/axios'
 
-const Product = ({limit}) => {
+const Product = ({category, limit}) => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
+        console.log("hello")
+        let requestUrl;
+        if(category !== '') {
+            requestUrl = `/products/category/${category}?limit=${limit}`;
+        }
+        else {
+            requestUrl = `/products?limit=${limit}`;
+        }
         axios
-        .get(`/products?limit=${limit}`)
+        .get(`${requestUrl}`)
         .then((response) => setProducts(response.data))
         .catch((error) => console.log(error));
-    },[limit]);
+    },[category, limit]);
 
   return (
     <>
