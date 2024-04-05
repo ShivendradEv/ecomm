@@ -15,7 +15,6 @@ function App() {
       <Router>
 
         <Header/>
-        <div className='container'>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="ProductList/:category" element={<ProductList/>}/>
@@ -23,7 +22,6 @@ function App() {
             <Route path="/Cart" element={<Cart/>}/>
             <Route path="/Checkout" element={<Checkout/>}/>
           </Routes>
-        </div>
 
       </Router>
     </>

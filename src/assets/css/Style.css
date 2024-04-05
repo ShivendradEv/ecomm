@@ -24,6 +24,7 @@ img {
     display: flex;
     background: #5ac6c9;
     align-items: center;
+    margin-bottom: 30px;
 }
 .navbar .nav-logo a {
     display: flex;
