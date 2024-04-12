@@ -1,10 +1,12 @@
 import { React, useEffect, useState } from 'react'
 import axios from '../../util/axios'
+import Loader from '../layout/Loader';
 
 const Product = ({category, limit}) => {
+    const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        console.log("hello")
+        setLoading(true);
         let requestUrl;
         if(category !== '') {
             requestUrl = `/products/category/${category}?limit=${limit}`;
@@ -14,12 +16,16 @@ const Product = ({category, limit}) => {
         }
         axios
         .get(`${requestUrl}`)
-        .then((response) => setProducts(response.data))
+        .then((response) => {
+            setProducts(response.data); 
+            setLoading(false);
+        })
         .catch((error) => console.log(error));
     },[category, limit]);
 
   return (
     <>
+        { loading && <Loader/> }
         {products.map((product, index) => {
             return (
                 <div key={index} className='product'>
