@@ -1,3 +1,4 @@
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from "./components/layout/Header";
@@ -6,6 +7,7 @@ import ProductList from "./pages/ProductList";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Footer from './components/layout/Footer';
 
 import './assets/css/Style.css';
 
@@ -13,7 +15,6 @@ function App() {
   return (
     <>
       <Router>
-
         <Header/>
           <Routes>
             <Route path="/" element={<Home/>}/>
@@ -24,6 +25,8 @@ function App() {
           </Routes>
 
       </Router>
+
+      <Footer/>
     </>
   );
 }
