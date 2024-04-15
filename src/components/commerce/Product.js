@@ -1,50 +1,47 @@
-import { React, useEffect, useState } from 'react'
-import axios from '../../util/axios'
+import { React, useEffect } from 'react'
 import Loader from '../layout/Loader';
+import { getProducts } from '../../store/actionType/ProductList';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 const Product = ({category, limit}) => {
-    const [loading, setLoading] = useState(false);
-    const [products, setProducts] = useState([]);
+    const dispatch = useDispatch();
+    const products = useSelector(state => state.products.products, shallowEqual);
+    const loader = useSelector(state => state.products.loader, shallowEqual);
+    
+    console.log("productList: ", products);
+    console.log("loader: ", loader);
+    
     useEffect(() => {
-        setLoading(true);
-        let requestUrl;
-        if(category !== '') {
-            requestUrl = `/products/category/${category}?limit=${limit}`;
-        }
-        else {
-            requestUrl = `/products?limit=${limit}`;
-        }
-        axios
-        .get(`${requestUrl}`)
-        .then((response) => {
-            setProducts(response.data); 
-            setLoading(false);
-        })
-        .catch((error) => console.log(error));
-    },[category, limit]);
+        dispatch(getProducts(category, limit))
+    },[dispatch, category, limit]);
 
   return (
     <>
-        { loading && <Loader/> }
-        {products.map((product, index) => {
-            return (
-                <div key={index} className='product'>
-                    <div className='thumbnail'>
-                        <img src={product.image} alt={product.title}/>
-                        <p className='category'>{product.category}</p>
-                    </div>
-                    <div className='content'>
-                        <h2 className='title'>{product.title}</h2>
-                        <div className='price-main'>
-                            <p className='price'>&#x20b9;{product.price}</p>
-                            <p className='rating'>{product.rating.rate} &#9733;</p>
+        { loader && <Loader/> }
+        {products.length > 0 && (
+            <>
+                {products.map((product, index) => {
+                    return (
+                        <div key={index} className='product'>
+                            <div className='thumbnail'>
+                                <img src={product.image} alt={product.title}/>
+                                <p className='category'>{product.category}</p>
+                            </div>
+                            <div className='content'>
+                                <h2 className='title'>{product.title}</h2>
+                                <div className='price-main'>
+                                    <p className='price'>&#x20b9;{product.price}</p>
+                                    <p className='rating'>{product.rating.rate} &#9733;</p>
+                                </div>
+                                <button className='cart-btn'>Add to cart</button>
+                            </div>
+                            
                         </div>
-                        <button className='cart-btn'>Add to cart</button>
-                    </div>
-                    
-                </div>
-            );
-        })}
+                    );
+                })}
+            </>
+        )}
+        
     </>
   );
 }
