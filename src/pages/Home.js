@@ -1,10 +1,12 @@
 import React from 'react'
-import Product from '../components/commerce/Product'
+// import Product from '../components/commerce/Product'
+import ProductList from '../features/productList/ProductList';
 
 const Home = () => {
   return (
     <>
-      <div className='container'>
+      <ProductList/>
+      {/* <div className='container'>
         <h1 className='heading2'>Jewelery</h1>
         <div className='products-grid products-grid-4'>
           <Product category={"jewelery"} limit={4} />
@@ -21,7 +23,7 @@ const Home = () => {
         <div className='products-grid products-grid-4'>
           <Product category={"women's clothing"} limit={4} />
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
