@@ -1,6 +1,6 @@
 import React from 'react'
 // import Product from '../components/commerce/Product'
-import ProductList from '../features/ProductList/ProductList';
+import ProductList from '../features/productList/ProductList';
 
 const Home = () => {
   return (

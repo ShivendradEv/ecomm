@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ProductListComp from '../features/ProductList/ProductList';
+import ProductListComp from '../features/productList/ProductList';
 
 // import Product from '../components/commerce/Product'
 
