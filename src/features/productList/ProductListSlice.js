@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios from '../../util/axios';
 
 // Slice
 const name = 'productList';
@@ -13,13 +13,14 @@ const slice = createSlice({
     builder
       // Define extra reducers here using builder
       .addCase(extraActions.getAll.pending, (state) => {
-        state.products = { loading: true };
+        state.loading = true;
       })
       .addCase(extraActions.getAll.fulfilled, (state, action) => {
         state.products = action.payload;
+        state.loading = false;
       })
       .addCase(extraActions.getAll.rejected, (state, action) => {
-        state.products = { error: action.error };
+        state.error = action.error;
       });
   }
 });
@@ -31,17 +32,33 @@ export const ProductListReducer = slice.reducer;
 // implementation
 function createInitialState() {
   return {
-    products: []
+    products: [],
+    loading: false,
+    error: '',
   };
 }
 
 function createExtraActions() {
-  const baseUrl = "https://fakestoreapi.com/products?limit=4";
-
+  
   return {
     getAll: createAsyncThunk(
       `${name}/getAll`,
-      async () => await axios.get(baseUrl)
+      async (productParams) => {
+        let baseUrl;
+        if(productParams.category !== '' && productParams.limit !== '') {
+          baseUrl = `/products/category/${productParams.category}?limit=${productParams.limit}`;
+        }
+        else if(productParams.category !== '') {
+          baseUrl = `/products?limit=${productParams.limit}`;
+        }
+        else {
+          baseUrl = `/products`;
+        }
+        // console.log(baseUrl)
+        // console.log(await axios.get(baseUrl));
+        const response = await axios.get(baseUrl)
+        return response.data;
+      }
     )
   };
 }
