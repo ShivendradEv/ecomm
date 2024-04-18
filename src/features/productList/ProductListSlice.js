@@ -54,8 +54,6 @@ function createExtraActions() {
         else {
           baseUrl = `/products`;
         }
-        // console.log(baseUrl)
-        // console.log(await axios.get(baseUrl));
         const response = await axios.get(baseUrl)
         return response.data;
       }
