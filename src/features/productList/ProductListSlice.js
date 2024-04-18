@@ -45,17 +45,26 @@ function createExtraActions() {
       `${name}/getAll`,
       async (productParams) => {
         let baseUrl;
-        if(productParams.category !== '' && productParams.limit !== '') {
-          baseUrl = `/products/category/${productParams.category}?limit=${productParams.limit}`;
-        }
-        else if(productParams.category !== '') {
-          baseUrl = `/products?limit=${productParams.limit}`;
+        let currentCategory = window.location.href.split("/ProductList/");
+        if(window.location.href.includes("/ProductList/")) {
+          if(productParams.category !== '' && productParams.limit !== '' && currentCategory[1].toLocaleLowerCase().replace("%20", " ") === productParams.category) {
+            baseUrl = `/products/category/${productParams.category}?limit=${productParams.limit}`;
+            const response = await axios.get(baseUrl);
+            return response.data;
+          }
         }
         else {
-          baseUrl = `/products`;
+          if(productParams.category !== '' && productParams.limit !== '') {
+            baseUrl = `/products/category/${productParams.category}?limit=${productParams.limit}`;
+            const response = await axios.get(baseUrl);
+            return response.data;
+          }
+          else if(productParams.category !== '') {
+            baseUrl = `/products?limit=${productParams.limit}`;
+            const response = await axios.get(baseUrl);
+            return response.data;
+          }
         }
-        const response = await axios.get(baseUrl)
-        return response.data;
       }
     )
   };

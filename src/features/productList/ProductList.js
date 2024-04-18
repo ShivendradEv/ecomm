@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { ProductListActions } from './ProductListSlice';
+import { useNavigate } from 'react-router-dom';
  
 const ProductList = (productParams) => {
+
+    const navigate = useNavigate();
 
     const products = useSelector((state) => state.productList.products);
     const loading = useSelector((state) => state.productList.loading);
     const dispatch = useDispatch();
 
+    
+    const handleClick = (prdId) => {
+        navigate(`/ProductDetails/${prdId}`);
+    }
+    
     useEffect(() => {
         dispatch(ProductListActions.getAll(productParams));
     },[dispatch, productParams]);
@@ -31,7 +39,7 @@ const ProductList = (productParams) => {
                                     <p className='price'>&#x20b9;{product.price}</p>
                                     <p className='rating'>{product.rating.rate} &#9733;</p>
                                 </div>
-                                <button className='cart-btn'>Add to cart</button>
+                                <button className='cart-btn' onClick={() => handleClick(product.id)}>View Product</button>
                             </div>
                         </div>
                         </>

@@ -163,6 +163,18 @@ img {
     display: grid;
     place-items: center;
 }
+.product .cart-btn {
+    background: #5ac6c9;
+    border: 1px solid #5ac6c9;
+    color: #fff;
+    width: 130px;
+    height: 35px;
+    font-size: .7rem;
+    font-family: 'Nunito Sans', sans-serif;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+}  
 
 /* Footer */
 .footer-main .main-links,
@@ -206,6 +218,78 @@ img {
     color: #000;
     font-size: 1rem;
 }
+
+/* Product Details */
+.product-details {
+    display: flex;
+    margin-bottom: 30px ;
+}
+.product-details .details-thumbnail {
+    flex: 0 0 30%;
+    border: 1px solid #ccc;
+    padding: 5% 7%;
+    position: relative;
+}
+.product-details .category {
+    margin: 0;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 16px;
+}
+.product-details .details-content {
+    flex: 0 0 70%;
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.product-details .details-content .title {
+    font-size: 2rem;
+}
+.product-details .details-content .price-main {
+    display: flex;
+    margin: 20px 0;
+}
+.product-details .details-content .price-main .price {
+    font-size: 18px;
+    margin: 0;
+}
+.product-details .details-content .price-main .rating {
+    margin: 0 0 0 auto;
+    background: #03761b;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 2px 5px;
+    line-height: 12px;
+    display: grid;
+    place-items: center;
+}
+.product-details .details-content .description {
+    padding: 30px 30px 30px 0;
+    font-size: 1.2rem;
+}
+.product-details .details-content .cart-btn {
+    background: #5ac6c9;
+    border: 1px solid #5ac6c9;
+    color: #fff;
+    width: 200px;
+    height: 45px;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}   
 
 @media (min-width: 1366px) {
     .container {
