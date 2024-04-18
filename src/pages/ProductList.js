@@ -1,8 +1,6 @@
 import { React, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ProductListComp from '../features/productList/ProductList';
-
-// import Product from '../components/commerce/Product'
+import Product from '../components/commerce/Product'
 
 const ProductList = () => {
 
@@ -16,9 +14,8 @@ const ProductList = () => {
   return (
     <div className='container'>
       <h1 className='heading2'>{categoryName}</h1>
-      <div className=''>
-        <ProductListComp category={categoryName} limit="4" grid={"4"}/>
-          {/* <Product category={categoryName} limit={4} /> */}
+      <div className='products-grid products-grid-4'>
+        <Product category={categoryName} limit={4} />
       </div>
     </div>
   )
