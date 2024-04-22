@@ -19,10 +19,10 @@ const Header = () => {
         </div>
         <ul className='nav-links' ref={NavLinks}>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/ProductList/Electronics">Electronics</NavLink></li>
-            <li><NavLink to="/ProductList/Jewelery">Jewelery</NavLink></li>
-            <li><NavLink to="/ProductList/Men's clothing">Men's clothing</NavLink></li>
-            <li><NavLink to="/ProductList/Women's clothing">Women's clothing</NavLink></li>
+            <li><NavLink to="/ProductList/smartphones">smartphones</NavLink></li>
+            <li><NavLink to="/ProductList/laptops">laptops</NavLink></li>
+            <li><NavLink to="/ProductList/sunglasses">sunglasses</NavLink></li>
+            <li><NavLink to="/ProductList/automotive">automotive</NavLink></li>
             <li className='cart-icon'><NavLink to="/Cart"><img src={CartIcon} alt="cart icon"/><div className='cart-count'>0</div></NavLink></li>
         </ul>
         <div className='nav-toggle' onClick={hamburgerClick}><img src={Hamburger} alt="hamburger-icon"/></div>
