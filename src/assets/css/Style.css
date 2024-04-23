@@ -13,6 +13,12 @@ img {
 .container {
     padding: 0 30px;
 }
+button {
+    transition: .5s ease;
+}
+button:hover {
+    opacity: .7;
+}
 /* Heading */
 .heading2 {
     font-size: 28px;
@@ -58,6 +64,7 @@ img {
     font-weight: 500;
     border-bottom: 2px solid transparent;
     transition: all .5s;
+    text-transform: capitalize;
 }
 .navbar .nav-links li.cart-icon a:last-child {
     border-color: transparent;
@@ -107,6 +114,8 @@ img {
     border-radius: 5px;
     overflow: hidden;
     flex: 1;
+    position: relative;
+    padding-bottom: 45px;
 }
 .product .thumbnail {
     position: relative;
@@ -163,6 +172,21 @@ img {
     display: grid;
     place-items: center;
 }
+.product .cart-btn {
+    background: #5ac6c9;
+    border: 1px solid #5ac6c9;
+    color: #fff;
+    width: 100%;
+    height: 45px;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}  
 
 /* Footer */
 .footer-main .main-links,
@@ -207,6 +231,153 @@ img {
     font-size: 1rem;
 }
 
+/* Product Details */
+.product-details {
+    display: flex;
+    margin-bottom: 30px ;
+}
+.product-details .details-thumbnail {
+    flex: 0 0 45%;
+    border: 1px solid #ccc;
+    padding: 5% 7%;
+    position: relative;
+}
+.product-details .category {
+    margin: 0;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 16px;
+}
+.product-details .details-content {
+    flex: 0 0 55%;
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.product-details .details-content .title {
+    font-size: 2rem;
+    margin: 0;
+}
+.product-details .details-content .price {
+    font-size: 18px;
+    margin: 20px 0 0;
+    font-weight: 700;
+}
+.product-details .details-content .rating {
+    background: #03761b;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 0;
+    line-height: 12px;
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 35px;
+    margin: 0;
+}
+.product-details .details-content .description {
+    padding: 5px 0 20px;
+    font-size: 1.2rem;
+}
+.product-details .details-content .cart-btn {
+    background: #5ac6c9;
+    border: 1px solid #5ac6c9;
+    color: #fff;
+    width: 200px;
+    height: 45px;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}   
+/* Product List skeleton */
+.pl-skeleton {
+    border: 1px solid #d1d1d1;
+}
+.pl-skeleton .thumbnail {
+    height: 333px;
+    position: relative;
+}
+.pl-skeleton .content .title,
+.pl-skeleton .content .price,
+.pl-skeleton .content .btn {
+    position: relative;
+}
+.pl-skeleton .content .title {
+    height: 24px;
+    margin-top: 15px;
+}
+.pl-skeleton .content .price {
+    height: 24px;
+    margin: 20px 0;
+}
+.pl-skeleton .content .btn {
+    height: 45px;
+}
+/* PDP Skeleton Loader */
+.pdp-skeleton {
+    display: flex;
+    margin-bottom: 30px;
+}
+.pdp-skeleton .thumbnail {
+    flex: 0 0 45%;
+    height: 600px;
+    position: relative;
+}
+.pdp-skeleton .content {
+    flex: 0 0 55%;
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* Pagination */
+.pagination ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.pagination {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.pagination ul li {
+    display: inline-block;
+    background: #d1d1d1;
+    margin: 0 10px;
+    min-width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+.pagination ul li:first-child {
+    margin-left: 0;
+}
+.pagination ul li:last-child {
+    margin-right: 0;
+}
+.pagination ul li.active {
+    background: #5ac6c9;
+    color: #fff;
+}
+
 @media (min-width: 1366px) {
     .container {
         padding: 0 10%;
@@ -220,6 +391,31 @@ img {
     }
     .product .content .price-main .rating {
         font-size: 16px;
+    }
+    
+}
+
+@media (max-width: 1366px) {
+    .pl-skeleton .thumbnail {
+        height: 238px; 
+    }
+    .pdp-skeleton .thumbnail {
+        height: 433px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .pl-skeleton .thumbnail {
+        height: 210px;
+    }
+    .pl-skeleton .content .title {
+        height: 22px;
+    }
+    .pl-skeleton .content .price {
+        height: 19px;
+    }
+    .pdp-skeleton .thumbnail {
+        height: 383px;
     }
 }
 
@@ -257,6 +453,9 @@ img {
     .products-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
+    .pdp-skeleton .thumbnail {
+        height: 283px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -266,6 +465,27 @@ img {
     }
     .product .content .price-main {
         margin: 10px 0;
+    }
+    /* PDP */
+    .product-details .details-content,
+    .product-details .details-thumbnail {
+        flex: unset;
+    }
+    .product-details {
+        display: block;
+    }
+    .product-details .details-content {
+        padding: 0;
+        margin-top: 30px;
+    }
+    .pdp-skeleton {
+        display: block;
+    }
+    .pdp-skeleton .thumbnail {
+        height: 496px;
+    }
+    .pdp-skeleton .content {
+        padding: 30px 0 0;
     }
 }
 
@@ -280,6 +500,32 @@ img {
     /* Product */
     .products-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+    .product .cart-btn {
+        font-size: .7rem;
+        height: 35px;
+    }
+    .product {
+        padding-bottom: 35px;
+    }
+    .pl-skeleton .thumbnail {
+        height: 152px;
+    }
+    .pl-skeleton .content .price {
+        margin: 10px 0;
+    }
+    .pl-skeleton .content .btn {
+        height: 35px;
+    }
+    .pdp-skeleton .thumbnail {
+        height: 319px;
+    }
+    /* Footer */
+    .footer-main .footer-logo {
+        padding: 40px 30% 0;
+    }
+    .footer-main .main-links li {
+        margin: 5px 15px;
     }
 
 }

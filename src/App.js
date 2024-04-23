@@ -1,13 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Header from "./components/layout/Header";
+import Header from './features/header/Header';
+import Footer from './features/footer/Footer';
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
-import Footer from './components/layout/Footer';
 
 import './assets/css/Style.css';
 
@@ -19,9 +18,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="ProductList/:category" element={<ProductList/>}/>
-            <Route path="/ProductDetails" element={<ProductDetails/>}/>
+            <Route path="/ProductDetails/:productId" element={<ProductDetails/>}/>
             <Route path="/Cart" element={<Cart/>}/>
-            <Route path="/Checkout" element={<Checkout/>}/>
           </Routes>
 
       </Router>

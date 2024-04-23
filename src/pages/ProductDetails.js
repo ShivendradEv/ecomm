@@ -1,10 +1,21 @@
-import React from 'react'
+import { React, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import ProductDetailsComp from '../features/productDetails/ProductDetails';
 
 const ProductDetails = () => {
 
+  const [productId, setProductId] = useState("");
+  let getProductId = useParams();
+
+  useEffect(() => {
+    setProductId(getProductId.productId.toLocaleLowerCase())
+  },[getProductId]);
+
   return (
-    <div>
-      PDP Page
+    <div className='container'>
+      <div className=''>
+        <ProductDetailsComp id={productId}/>
+      </div>
     </div>
   )
 }
