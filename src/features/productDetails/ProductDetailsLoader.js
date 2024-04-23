@@ -5,7 +5,7 @@ const ProductDetailsLoader = () => {
   return (
     <div className='pdp-skeleton'>
         <div className='thumbnail'>
-            <Skeleton height={410}/>
+            <Skeleton style={{ display: "inline-block", position: "absolute", top: "0", left: "0", width: "100%", height: "100%" }}/>
         </div>
         <div className='content'>
             <Skeleton height={43}/>

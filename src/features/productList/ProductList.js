@@ -1,17 +1,19 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useGetAllProductsQuery } from './ProductListSlice';
 import 'react-loading-skeleton/dist/skeleton.css'
-import ProductListSkeltopn from './ProductListSkeltopn';
+import ProductListSkelton from './ProductListSkelton';
+import { productsApi } from './ProductListSlice';
  
 const ProductList = (productParams) => {
-    const [prdParam, setPrdParam] = useState(productParams);
+
     let category = productParams.category;
     let limit = productParams.limit;
     let skip = productParams.skip;
     let pagination = productParams.pagination;
+    const [newSkip, setNewSkip] = useState(skip);
+
     // Product Data
-    const { data, isLoading, isError, isSuccess } = useGetAllProductsQuery({category,limit,skip,pagination});
+    const [trigger, { data, isLoading, isError, isSuccess }] = productsApi.endpoints.getAllProducts.useLazyQuery();
 
     // Navigate to PDP
     const navigate = useNavigate();
@@ -35,15 +37,23 @@ const ProductList = (productParams) => {
     const handlePaginationClick = (e) => {
         document.querySelector(".pagination ul li.active").classList.remove("active");
         e.target.classList.add("active");
-        skip = 2;
+      
+        // Calculate the new skip value based on the clicked button index
+        const currentPage = parseInt(e.target.innerText, 10); 
+        const itemsPerPage = 1;
+        setNewSkip((currentPage - 1) * itemsPerPage);
     }
+
+    useEffect(() => {
+        trigger({category,limit,skip: newSkip,pagination});
+    },[newSkip, category, limit, pagination, trigger])
 
     return (
         <>
             { isLoading && 
                 <>
                 <div className={`products-grid products-grid-${productParams.grid}`}>
-                    <ProductListSkeltopn cards={productParams.cards}/>
+                    <ProductListSkelton cards={productParams.cards}/>
                 </div>
                 </>
             }                      
@@ -73,13 +83,9 @@ const ProductList = (productParams) => {
             {productParams.pagination && (
                 <div className='pagination'>
                     <ul>
-                        {/* <li>Prev</li> */}
-                        <>
-                            {
-                                Array(numButtonsToShow.current).fill(0).map((_, index) => <li key={index} className={index === 0 ? 'active' : ''} onClick={(e) => handlePaginationClick(e)}>{index+1}</li>)
-                            }
-                        </>
-                        {/* <li>Next</li> */}
+                        {
+                            Array(numButtonsToShow.current).fill(0).map((_, index) => <li key={index} className={index === 0 ? 'active' : ''} onClick={(e) => handlePaginationClick(e)}>{index+1}</li>)
+                        }
                     </ul>
                 </div>
             )}

@@ -333,6 +333,8 @@ button:hover {
 }
 .pdp-skeleton .thumbnail {
     flex: 0 0 45%;
+    height: 600px;
+    position: relative;
 }
 .pdp-skeleton .content {
     flex: 0 0 55%;
@@ -397,6 +399,9 @@ button:hover {
     .pl-skeleton .thumbnail {
         height: 238px; 
     }
+    .pdp-skeleton .thumbnail {
+        height: 433px;
+    }
 }
 
 @media (max-width: 1199px) {
@@ -408,6 +413,9 @@ button:hover {
     }
     .pl-skeleton .content .price {
         height: 19px;
+    }
+    .pdp-skeleton .thumbnail {
+        height: 383px;
     }
 }
 
@@ -445,6 +453,9 @@ button:hover {
     .products-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
+    .pdp-skeleton .thumbnail {
+        height: 283px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -466,6 +477,15 @@ button:hover {
     .product-details .details-content {
         padding: 0;
         margin-top: 30px;
+    }
+    .pdp-skeleton {
+        display: block;
+    }
+    .pdp-skeleton .thumbnail {
+        height: 496px;
+    }
+    .pdp-skeleton .content {
+        padding: 30px 0 0;
     }
 }
 
@@ -496,6 +516,9 @@ button:hover {
     }
     .pl-skeleton .content .btn {
         height: 35px;
+    }
+    .pdp-skeleton .thumbnail {
+        height: 319px;
     }
     /* Footer */
     .footer-main .footer-logo {
