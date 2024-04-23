@@ -13,8 +13,10 @@ const ProductList = () => {
 
   return (
     <div className='container'>
-      <h1 className='heading2'>{categoryName}</h1>
-      <ProductListComp category={categoryName} limit="1" cards={1} grid={4} pagination={true} skip={0}/>
+      <div className='product-main'>
+        <h1 className='heading2'>{categoryName}</h1>
+        <ProductListComp category={categoryName} limit="1" cards={1} grid={4} pagination={true} skip={0}/>
+      </div>
     </div>
   )
 }

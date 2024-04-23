@@ -13,7 +13,7 @@ const ProductList = (productParams) => {
     const [newSkip, setNewSkip] = useState(skip);
 
     // Product Data
-    const [trigger, { data, isLoading, isError, isSuccess }] = productsApi.endpoints.getAllProducts.useLazyQuery();
+    const [trigger, { data, isError, error, isSuccess, isLoading, isFetching }] = productsApi.endpoints.getAllProducts.useLazyQuery();
 
     // Navigate to PDP
     const navigate = useNavigate();
@@ -49,18 +49,25 @@ const ProductList = (productParams) => {
     },[newSkip, category, limit, pagination, trigger])
 
     return (
-        <>
+        <> 
             { isLoading && 
                 <>
-                <div className={`products-grid products-grid-${productParams.grid}`}>
+                <div className={`skeleton-loader products-grid products-grid-${productParams.grid}`}>
                     <ProductListSkelton cards={productParams.cards}/>
                 </div>
                 </>
+            }  
+            { isFetching && document.querySelector(".main-grid") && 
+                <>
+                <div className='spinner-main'>
+                    <div className='spinner'></div>
+                </div>
+                </>
             }                      
-            { isError && <p>Something went wrong...</p> }
+            { isError && <p>{error}</p> }
             { isSuccess && (
-                <>  
-                <div className={`products-grid products-grid-${productParams.grid}`}>
+                <>
+                <div className={`main-grid products-grid products-grid-${productParams.grid}`}>
                     {data.products?.map((product, index) => (
                         <div className='product' key={index}>
                             <div className='thumbnail'>
