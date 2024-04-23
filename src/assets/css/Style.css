@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 * {
     box-sizing: border-box;
 }
@@ -25,23 +26,85 @@ button:hover {
     line-height: 1;
     margin: 0 0 20px;
     text-transform: capitalize;
+    color: #2e2e2e;
 }
 /* Navbar */
+.navbar {
+    margin-bottom: 30px;
+}
 .navbar .container {
     display: flex;
-    background: #5ac6c9;
     align-items: center;
-    margin-bottom: 30px;
+}
+.navbar .top-nav {
+    background: #4e4e4e;
+    padding: 10px 0;
+}
+.navbar .top-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+.navbar .top-nav ul.contact-info li {
+    display: flex;
+    margin-right: 20px;
+}
+.navbar .top-nav ul.contact-info li:last-child {
+    margin-right: 0;
+}
+.navbar .top-nav ul.contact-info li .icon {
+    width: 20px;
+    margin-right: 5px;
+}
+.navbar .top-nav ul.contact-info li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all .5s ease;
+}
+.navbar .top-nav ul.contact-info li a:hover {
+    opacity: .7;
+}
+.navbar .top-nav .search {
+    margin-left: auto;
+}
+.navbar .top-nav .search li form {
+    position: relative;
+    width: 300px;
+}
+.navbar .top-nav .search li form input {
+    width: 100%;
+    height: 35px;
+    padding: 0 15px;
+    border: 0;
+    font-size: .8rem;
+    border-radius: 0;
+}
+.navbar .top-nav .search li form input:focus {
+    outline: none;
+}
+.navbar .top-nav .search li form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    border: 0;
+    cursor: pointer;
+}
+.navbar .bottom-nav {
+    background: #2e2e2e;
 }
 .navbar .nav-logo a {
     display: flex;
+    font-family: "Itim", cursive;
+    text-decoration: none;
+    color: #fff;
+    font-size: 2rem;
 }
-.navbar .nav-logo {
-    padding: 15px 20px;
-    background: #fff;
-}
-.navbar .nav-logo img {
-    width: 100px;
+.navbar .nav-logo a span {
+    color: #ff0000;
 }
 .navbar .nav-links {
     padding: 0;
@@ -60,7 +123,7 @@ button:hover {
 }
 .navbar .nav-links li a {
     text-decoration: none;
-    color: #001718;
+    color: #fff;
     font-weight: 500;
     border-bottom: 2px solid transparent;
     transition: all .5s;
@@ -71,7 +134,7 @@ button:hover {
 }
 .navbar .nav-links li a.active,
 .navbar .nav-links li a:hover {
-    border-color: #001718;
+    border-color: #ff0000;
 }
 .navbar .cart-icon {
     width: 35px;
@@ -110,7 +173,6 @@ button:hover {
 .product {
     background: #f5f5f5;
     padding: 0;
-    border: 1px solid #d1d1d1;
     border-radius: 5px;
     overflow: hidden;
     flex: 1;
@@ -120,7 +182,8 @@ button:hover {
 .product .thumbnail {
     position: relative;
     padding: 15% 20%;
-    background: #fff;
+    background: #f5f5f5;
+    border-bottom: 1px solid #d1d1d1;
 }
 .product .thumbnail img {
     aspect-ratio: 4/4;
@@ -173,14 +236,14 @@ button:hover {
     place-items: center;
 }
 .product .cart-btn {
-    background: #5ac6c9;
-    border: 1px solid #5ac6c9;
+    background: #990000;
+    border: 1px solid #990000;
     color: #fff;
     width: 100%;
     height: 45px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
     font-family: 'Nunito Sans', sans-serif;
-    letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     position: absolute;
@@ -209,9 +272,10 @@ button:hover {
     color: #555;
     text-decoration: none;
     font-size: 1rem;
+    text-transform: capitalize;
 }
 .footer-main .secondary-links {
-    background: #5ac6c9;
+    background: #2e2e2e;
     color: #fff;
     padding: 10px 15px;
 }
@@ -220,9 +284,18 @@ button:hover {
     letter-spacing: 1px;
 }
 .footer-main .footer-logo {
-    background: #ffffff;
-    padding: 40px 40% 0;
+    padding: 40px 0 0;
     border-top: 1px solid #ccc;
+    text-align: center;
+}
+.footer-main .footer-logo a {
+    font-family: "Itim", cursive;
+    text-decoration: none;
+    color: #2e2e2e;
+    font-size: 5rem;
+}
+.footer-main .footer-logo a span {
+    color: #ff0000;
 }
 
 /* Loader */
@@ -290,16 +363,15 @@ button:hover {
     font-size: 1.2rem;
 }
 .product-details .details-content .cart-btn {
-    background: #5ac6c9;
-    border: 1px solid #5ac6c9;
+    background: #990000;
+    border: 1px solid #990000;
     color: #fff;
     width: 200px;
     height: 45px;
     font-size: 1rem;
+    font-weight: 700;
     font-family: 'Nunito Sans', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 5px;
     cursor: pointer;
 }   
 /* Product List skeleton */
@@ -374,7 +446,7 @@ button:hover {
     margin-right: 0;
 }
 .pagination ul li.active {
-    background: #5ac6c9;
+    background: #990000;
     color: #fff;
 }
 
@@ -420,6 +492,22 @@ button:hover {
 }
 
 @media (max-width: 991px) {
+    .navbar .bottom-nav {
+        padding: 7px 0;
+    }
+    .navbar .top-nav ul.contact-info li a {
+        font-size: .8rem;
+    }
+    .navbar .top-nav ul.contact-info li .icon {
+        width: 15px;
+    }
+    .navbar .top-nav .search li form input {
+        height: 30px;
+    }
+    .navbar .top-nav .search li form button {
+        width: 30px;
+        height: 30px;
+    }
     .navbar .nav-toggle {
         display: block;
         margin-left: auto;
@@ -449,6 +537,9 @@ button:hover {
     .navbar .nav-links li:last-child {
         margin-bottom: 0;
     }
+    .navbar .nav-links li a {
+        color: #2e2e2e;
+    }
     /* Product */
     .products-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -459,12 +550,23 @@ button:hover {
 }
 
 @media (max-width: 767px) {
+    /* Navbar */
+    .navbar .top-nav .search li form {
+        width: 180px;
+    }
     /* Product */
     .product .thumbnail .category {
         font-size: 10px;
     }
     .product .content .price-main {
         margin: 10px 0;
+    }
+    .product {
+        padding-bottom: 35px;
+    }
+    .product .cart-btn {
+        height: 35px;
+        font-size: 0.8rem;
     }
     /* PDP */
     .product-details .details-content,
@@ -490,9 +592,20 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-
     .container {
         padding: 0 15px;
+    }
+    /* Navbar */
+    .navbar .top-nav .container {
+        flex-direction: column;
+    }
+    .navbar .top-nav .search,
+    .navbar .top-nav .search li,
+    .navbar .top-nav .search li form {
+        width: 100%;
+    }
+    .navbar .top-nav ul.contact-info {
+        margin: 0 0 10px;
     }
     .navbar .nav-links {
         width: 70%;
@@ -521,11 +634,11 @@ button:hover {
         height: 319px;
     }
     /* Footer */
-    .footer-main .footer-logo {
-        padding: 40px 30% 0;
-    }
     .footer-main .main-links li {
         margin: 5px 15px;
+    }
+    .footer-main .footer-logo a {
+        font-size: 4rem;
     }
 
 }

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
+import PageNotFound from './pages/PageNotFound';
 
 import './assets/css/Style.css';
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="ProductList/:category" element={<ProductList/>}/>
             <Route path="/ProductDetails/:productId" element={<ProductDetails/>}/>
             <Route path="/Cart" element={<Cart/>}/>
+            <Route path="*" element={<PageNotFound/>}/>
           </Routes>
 
       </Router>

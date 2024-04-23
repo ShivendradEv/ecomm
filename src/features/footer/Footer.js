@@ -1,18 +1,18 @@
 import React from 'react';
-import LogoImg from '../../assets/images/logo.jpg';
+// import LogoImg from '../../assets/images/logo.jpg';
 
 const Footer = () => {
   return (
     <div className='footer-main'>
       <div className='footer-logo'>
-        <img src={LogoImg} alt="logo" />
+        <a href="/">Electro<span>.</span></a>
       </div>
       <ul className='main-links'>
         <li><a href='/'>Home</a></li>
-        <li><a href='/ProductList/Electronics'>Electronics</a></li>
-        <li><a href='/ProductList/Jewelery'>Jewelery</a></li>
-        <li><a href="/ProductList/Men's clothing">Men's Clothing</a></li>
-        <li><a href="/ProductList/Women's clothing">Women's Clothing</a></li>
+        <li><a href='/ProductList/smartphones'>smartphones</a></li>
+        <li><a href='/ProductList/laptops'>laptops</a></li>
+        <li><a href="/ProductList/sunglasses">sunglasses</a></li>
+        <li><a href="/ProductList/automotive">automotive</a></li>
       </ul>
       <ul className='secondary-links'>
         <li>

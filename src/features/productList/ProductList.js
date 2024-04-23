@@ -25,7 +25,7 @@ const ProductList = (productParams) => {
     const totalProducts = data?.total;
     let numButtonsToShow = useRef(0);
     if(totalProducts !== undefined) {
-        const itemsPerPage = 1;
+        const itemsPerPage = limit;
         const totalPages = Math.ceil(totalProducts / itemsPerPage);
         const maxButtonsToShow = 4;
         numButtonsToShow.current = Math.min(totalPages, maxButtonsToShow);
@@ -40,7 +40,7 @@ const ProductList = (productParams) => {
       
         // Calculate the new skip value based on the clicked button index
         const currentPage = parseInt(e.target.innerText, 10); 
-        const itemsPerPage = 1;
+        const itemsPerPage = limit;
         setNewSkip((currentPage - 1) * itemsPerPage);
     }
 
