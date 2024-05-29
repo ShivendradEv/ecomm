@@ -1,3 +1,7 @@
+# Use branch "feature/ecomm-redux" to get code of react + redux toolkit
+
+# Use branch "feature/ecomm" to get code of react + redux
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
