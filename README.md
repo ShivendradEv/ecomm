@@ -1,6 +1,6 @@
-# Use branch "feature/ecomm-redux" to get code of react + redux toolkit
+# Use branch "feature/ecomm-redux" to get code of react + redux
 
-# Use branch "feature/ecomm" to get code of react + redux
+# Use branch "feature/ecomm" to get code of react + redux toolkit
 
 # Getting Started with Create React App
 
