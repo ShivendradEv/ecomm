@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
 import Footer from './components/layout/Footer';
 
 import './assets/css/Style.css';
@@ -21,7 +20,6 @@ function App() {
             <Route path="ProductList/:category" element={<ProductList/>}/>
             <Route path="/ProductDetails" element={<ProductDetails/>}/>
             <Route path="/Cart" element={<Cart/>}/>
-            <Route path="/Checkout" element={<Checkout/>}/>
           </Routes>
 
       </Router>
